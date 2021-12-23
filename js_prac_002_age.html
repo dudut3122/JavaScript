@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>나이 계산하기</title>
+	<style>
+		*{
+			margin: 0;
+			box-sizing: border-box;
+		}
+		body{
+			text-align: center;
+		}
+		.btn{
+			margin: 50px;
+			padding: 0.375rem 0.75rem;
+			background-color: #007bff;
+			color: white;
+			text-align: center;
+			font-weight: 400;
+			font-size: 1rem;
+			border: 1px solid #007bff;
+			border-radius: 0.25rem;
+			transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+		}
+		.btn:hover{
+			background-color: #218838;
+			border-color: #1c7730;
+		}
+	</style>
+</head>
+<body>	
+	<button class="btn" onclick="calc()">나이 계산하기</button>
+	<div id="result" class="show">(결과 값 표시)</div>
+
+	<script>
+		function calc(){
+			var currentYear = new Date().getFullYear();
+			var birthYear = prompt("태어난 연도를 입력하세요", "YYYY");
+			var age = currentYear - birthYear + 1;
+			document.querySelector("#result").innerHTML = "당신의 나이는 " + age + "세입니다.";
+			result = document.querySelector("#result");
+			result.style.backgroundColor = "yellow";
+		}
+	</script>
+</body>
+</html>

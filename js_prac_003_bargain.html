@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        #contents{
+            margin: 0 auto;
+            width: 450px;
+        }
+        #contents > img{
+            float: left;
+        }
+        ul{
+            list-style: none;
+            padding-top: 40px;
+        }
+        li{
+            margin-bottom: 10px;
+        }
+        li > label{
+            width: 80px;
+            float: left; /*form label 정열*/
+            text-align: right;
+        }
+        input[type = "text"]{ /*input[type = "text"] 신기한 표현*/
+            margin: 0 5px 0 10px;
+            padding: 5px 10px;
+            width: 110px;
+        }
+        li:nth-child(3){
+            margin-top: 20px;
+            text-align: center;
+        }
+        button{
+            padding: 5px 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.5em;
+		}
+    </style>
+</head>
+<body>
+    <div id="contents">
+        <img src="./images/sale.png" alt="sale" id="image">
+
+        <ul>
+            <li>
+                <label for="price">원래 가격</label><input type="text" id="price">원
+            </li>
+            <li>
+                <label for="rate">할인율</label><input type="text" id="rate">%
+            </li>
+            <li>
+                <button onclick="calc()">할인 가격 계산하기</button>
+            </li>
+        
+        </ul>
+
+        <div id = "result"></div>
+    </div>
+</body>
+    <script>
+        function calc(){
+            var price = document.querySelector("#price").value;
+            var rate = document.querySelector("#rate").value;
+            var discountedP = price * (rate/100);
+            var payment = price - discountedP;
+            var result = document.querySelector("#result").innerHTML = "원래 가격: " + price +"원, 할인율: " + 
+                                    rate + "%, <br> 할인받은 금액: " + discountedP + "원, 내야할 금액: " + payment +"원";
+        }
+    </script>
+</html>
